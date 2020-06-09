@@ -1,12 +1,7 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngMessages', 'ngResource']);
 
-myApp.controller('mainController', function($scope) {
+myApp.controller('mainController', function($scope, $log, $filter, $resource) {
 
-    console.log($scope);
-    
+    console.log($resource);
+
 });
-
-var searchPeople = function(firstName, lastName, height, age, occupation){
-    return 'Jane Doe';
-}
-console.log(angular.injector().annotate(searchPeople));
