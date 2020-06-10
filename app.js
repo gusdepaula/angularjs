@@ -18,4 +18,10 @@ myApp.controller('mainController', ['$scope', '$timeout', '$filter', function($s
 
     console.log($scope.rules);
 
+    $scope.alertClick = function(){
+        alert('click');
+    };
+
+    $scope.name = 'John Doe';
+
 }]);
