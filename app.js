@@ -1,11 +1,11 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('mainController', ['$scope', '$timeout', function($scope, $timeout){
+myApp.controller('mainController', ['$scope', '$timeout', '$filter', function($scope, $timeout, $filter){
 
-    $scope.name = 'Tony';
+    $scope.handle = '';
 
-    $timeout(function(){
-        $scope.name = 'Everybody'
-    }, 3000);
-    
+    $scope.lowerCaseHandle = function() {
+        return $filter('lowercase')($scope.handle);
+    };
+
 }]);
