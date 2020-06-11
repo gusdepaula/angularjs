@@ -1,11 +1,27 @@
-var myApp = angular.module('myApp', []);
+var myApp = angular.module('myApp', ['ngRoute']);
 
-myApp.controller('mainController', ['$scope', '$timeout', '$filter', '$http', function($scope, $timeout, $filter, $http){
+myApp.config(function($routeProvider){
+    $routeProvider
+
+    .when('/', {
+        templateUrl: 'pages/main.html',
+        controller: 'mainController'
+    })
+
+    .when('/second', {
+        templateUrl: 'pages/second.html',
+        controller: 'secondController'
+    })
+});
+
+myApp.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
 
     $scope.name = 'Main';
+
 }]);
 
-myApp.controller('secondController', ['$scope', '$timeout', '$filter', '$http', function($scope, $timeout, $filter, $http){
+myApp.controller('secondController', ['$scope', '$location', '$log', function($scope, $location, $log){
 
     $scope.name = 'Second';
+
 }]);
