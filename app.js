@@ -19,8 +19,11 @@ myApp.config(function($routeProvider){
     })
 });
 
-myApp.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $lo){
-
+myApp.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log){
+    $scope.person = {
+        name: 'John Doe',
+        address: '555, Main St., New York, NY 1111'
+    }
 }]);
 
 myApp.controller('secondController', ['$scope', '$location', '$log', '$routeParams', function($scope, $location, $log, $routeParam){
@@ -31,6 +34,10 @@ myApp.directive('searchResult', function(){
     return {
         restrict: 'AECM',
         templateUrl: 'directives/searchResult.html',
-        replace:true
+        replace:true,
+        scope: {
+            personName: "@",
+            personAddress: "@"
+        }
     }
 });
